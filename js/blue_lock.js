@@ -4,10 +4,27 @@ const personagens = [
 
 ]
 
+let inputChute = document.getElementById('inputChute')
+
 let segundosPassados = 0
 let contador //Aqui encima pras duas funções acessarem
 
 let articleTimer = document.getElementById('articleTimer')
+let datalistPersonagens = document.getElementById('datalistPersonagens')
+
+function completarListaDePersonagens(){
+
+    for (const personagem of personagens) {
+
+        let opt = document.createElement('option')
+        opt.value = personagem.nome
+        opt.text = personagem.nome
+
+        datalistPersonagens.appendChild(opt)
+        
+    }
+
+}
 
 function randomizador(){
 
@@ -16,6 +33,8 @@ function randomizador(){
     return num
 
 }
+
+//
 
 function iniciarTimer(){
 
@@ -37,5 +56,34 @@ function finalizarTimer(){
         clearInterval(contador) //Limpa ué
         
     }
+
+}
+
+//
+
+function validarChute(){
+
+    let nomeChutado = inputChute.value
+    let personagemChutado
+
+    for (const personagemTalvez of personagens) {
+        
+        if (personagemTalvez.nome.toLowerCase() === nomeChutado.toLowerCase()){
+
+            personagemChutado = personagemTalvez
+
+        }
+
+    }
+
+    let arco = personagemChutado.arco
+    let posicao = personagemChutado.posicao
+    let pais = personagemChutado.pais
+    let clube = personagemChutado.clube
+    let cabelo = personagemChutado.cabelo
+    let olho = personagemChutado.olho
+    let altura = personagemChutado.altura
+
+    console.log(arco, posicao, pais, clube, cabelo, olho, altura)
 
 }

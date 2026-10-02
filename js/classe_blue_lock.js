@@ -7,7 +7,7 @@ class PersonagemBlueLock{
         this.olho = olho
         this.posicao = posicao
         this.arco = arco
-        this.altura = altura
+        this.altura = Number(altura)
         this.pais = pais
         this.clube = clube
 

@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body onload="completarListaDePersonagens()">
 
     <header>
 
@@ -27,7 +27,46 @@
 
     </header>
 
-    <main></main>
+    <hr>
+
+    <main>
+
+        <section>
+
+            <label for="inputPesquisa">Pesquisar personagem</label>
+            <input type="text" id="inputChute" list="datalistPersonagens" placeholder="Nome">
+
+            <datalist id="datalistPersonagens"></datalist>
+
+            <button type="button" onclick="validarChute()">Chutar</button>
+
+        </section>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Arco</th>
+                    <th>Posição</th>
+                    <th>País</th>
+                    <th>Clube</th>
+                    <th>Cabelo</th>
+                    <th>Olho</th>
+                    <th>Altura</th>
+
+                </tr>
+                
+            </thead>
+
+            <tbody></tbody>
+
+        </table>
+
+    </main>
+
+    <hr>
 
     <footer></footer>
     
