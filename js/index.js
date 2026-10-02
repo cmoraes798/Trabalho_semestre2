@@ -1,11 +1,20 @@
+
+
 function acesso(){
 
-    let usuario = document.getElementById("id_usuario").value;
+    let nome = document.getElementById("id_usuario").value;
     let senha = document.getElementById("id_senha").value;
     let botao = document.getElementById("id_botao_acesso");
 
+    //vendo se a classe ta certa (ou seja, tem mais de 1 carcter na senha e no usuario)
     if(botao.className == "ativado"){
-    localStorage.setItem('nome',usuario);
+
+    usuario = {
+        "pontos" : 0,
+        "nome": nome
+    }
+
+    localStorage.setItem(nome,JSON.stringify(usuario));
     window.location.href = "../html/blue_lock.html"    
 }
 }
@@ -22,4 +31,24 @@ function verificar(){
     }else{
         botao.className = "ativado";
     }
+}
+
+
+function ranking(){
+
+    for ( i = 0; i < localStorage.length; i++){
+
+        let chave = localStorage.key(i);
+        let valor = JSON.parse(localStorage.getItem(chave))
+
+        console.log(chave,valor)
+    }
+    
+
+    Swal.fire({
+        title: "Ranking",
+        html: ``,
+        icon: "success",
+        draggable: true
+});
 }

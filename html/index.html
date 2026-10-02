@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/index.js" ></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +18,10 @@
     usuário: <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario" onchange="verificar()"> <br><br>
     senha: <input type="text" placeholder="Escreva a senha aqui" id="id_senha" onchange="verificar()"><br><br>
 
-    <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button>
+    <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button><br><br>
 
+
+    <button type="button" onclick="ranking()">Ver ranking</button>
 
     <footer></footer>
     
