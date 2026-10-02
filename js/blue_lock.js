@@ -6,13 +6,13 @@ const personagens = [
 
 let inputChute = document.getElementById('inputChute')
 
-let segundosPassados = 0
+let segundosPassados = 0 //Controla os segundos
 let contador //Aqui encima pras duas funções acessarem
 
 let articleTimer = document.getElementById('articleTimer')
 let datalistPersonagens = document.getElementById('datalistPersonagens')
 
-function completarListaDePersonagens(){
+function completarListaDePersonagens(){ //Completa a lista de sugestões da pesquisa com os personagens do array
 
     for (const personagem of personagens) {
 
@@ -83,6 +83,8 @@ function validarChute(){
     let cabelo = personagemChutado.cabelo
     let olho = personagemChutado.olho
     let altura = personagemChutado.altura
+
+    inputChute.value = ''
 
     console.log(arco, posicao, pais, clube, cabelo, olho, altura)
 
