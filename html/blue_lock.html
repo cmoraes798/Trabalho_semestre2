@@ -6,13 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Lock</title>
 
+    <script defer src="../js/classe_blue_lock.js"></script>
+    <script defer src="../js/banco_de_personagens.js"></script>
+    <script defer src="../js/blue_lock.js"></script>
+
 </head>
 
-<body>
+<body onload="completarListaDePersonagens()">
 
-    <header></header>
+    <header>
 
-    <main></main>
+        <nav>
+
+            <a href="index.html">Início</a>
+            <a href="blue_lock.html">Blue Lock</a>
+
+        </nav>
+
+        <article id="articleTimer">Tempo corrido: 0</article>
+
+    </header>
+
+    <hr>
+
+    <main>
+
+        <section>
+
+            <label for="inputPesquisa">Pesquisar personagem</label>
+            <input type="text" id="inputChute" list="datalistPersonagens" placeholder="Nome">
+
+            <datalist id="datalistPersonagens"></datalist>
+
+            <button type="button" onclick="validarChute()">Chutar</button>
+
+        </section>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Arco</th>
+                    <th>Posição</th>
+                    <th>País</th>
+                    <th>Clube</th>
+                    <th>Cabelo</th>
+                    <th>Olho</th>
+                    <th>Altura</th>
+
+                </tr>
+                
+            </thead>
+
+            <tbody></tbody>
+
+        </table>
+
+    </main>
+
+    <hr>
 
     <footer></footer>
     
