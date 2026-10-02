@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
+    <script defer src="../js/index.js" ></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início</title>
@@ -12,7 +12,13 @@
 
     <header></header>
 
-    <main></main>
+    <main> Login (usuário e senha devem ter pelo menos 1 caractere)</main> <br><br>
+
+    usuário: <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario" onchange="verificar()"> <br><br>
+    senha: <input type="text" placeholder="Escreva a senha aqui" id="id_senha" onchange="verificar()"><br><br>
+
+    <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button>
+
 
     <footer></footer>
     
