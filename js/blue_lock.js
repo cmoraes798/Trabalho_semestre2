@@ -10,6 +10,8 @@ let segundosPassados = 0 //Controla os segundos
 let contador //Aqui encima pras duas funções acessarem
 
 let articleTimer = document.getElementById('articleTimer')
+let timerCorrendo
+
 let datalistPersonagens = document.getElementById('datalistPersonagens')
 
 function completarListaDePersonagens(){ //Completa a lista de sugestões da pesquisa com os personagens do array
@@ -34,6 +36,9 @@ function randomizador(){
 
 }
 
+let personagemEscolhido = personagens[randomizador()] //Escolhe um personagem aleatório
+console.log(personagemEscolhido)
+
 //
 
 function iniciarTimer(){
@@ -46,6 +51,8 @@ function iniciarTimer(){
         console.log(segundosPassados)
         
     }, 1000); //Os milissegundos
+
+    timerCorrendo = true
 
 }
 
@@ -85,6 +92,12 @@ function validarChute(){
     let altura = personagemChutado.altura
 
     inputChute.value = ''
+
+    if (timerCorrendo != true){
+
+        iniciarTimer()
+
+    }
 
     console.log(arco, posicao, pais, clube, cabelo, olho, altura)
 
