@@ -43,7 +43,7 @@ function randomizador(){
 let personagemEscolhido = personagens[randomizador()] //Escolhe um personagem aleatório
 console.log(personagemEscolhido)
 
-//
+//-------//
 
 function iniciarTimer(){
 
@@ -70,9 +70,15 @@ function finalizarTimer(){
 
 }
 
-//
+//-------//
 
 function validarChute(){
+
+    if (timerCorrendo != true){
+
+        iniciarTimer()
+
+    }
 
     let nomeChutado = inputChute.value
     let personagemChutado
@@ -87,6 +93,8 @@ function validarChute(){
 
     }
 
+    inputChute.value = ''
+
     let arco = personagemChutado.arco
     let posicao = personagemChutado.posicao
     let pais = personagemChutado.pais
@@ -94,35 +102,33 @@ function validarChute(){
     let cabelo = personagemChutado.cabelo
     let olho = personagemChutado.olho
     let altura = personagemChutado.altura
-    
-    console.log(arco, posicao, pais, clube, cabelo, olho, altura)
-
-    inputChute.value = ''
-
-    if (timerCorrendo != true){
-
-        iniciarTimer()
-
-    }
 
     let dados = [arco, posicao, pais, clube, cabelo, olho, altura]
     chutes.unshift(dados) //Adiciona o chute (em array) no começo do array
 
-    tbodyPersonagem.innerHTML = ''
+    tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
 
-    for (const personagem of chutes) { //Cria uma linha de tabela pra cada registro e adiciona no corpo
+    for (const personagem of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
 
         let novoTr = 
+
+        //arco
+        //posicao
+        //pais
+        //clube
+        //cabelo
+        //olho
+        //altura
         
         `<tr>
 
-            <th>${personagem[0]}</th>
+            <th>${personagem[0]}</th> 
             <th>${personagem[1]}</th>
             <th>${personagem[2]}</th>
             <th>${personagem[3]}</th>
             <th>${personagem[4]}</th>
             <th>${personagem[5]}</th>
-            <th>${personagem[6]}</th>
+            <th>${personagem[6]} cm</th>
 
         </tr>`
 
