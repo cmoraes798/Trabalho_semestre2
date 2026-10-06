@@ -4,6 +4,8 @@ const personagens = [
 
 ]
 
+const chutes = []
+
 let inputChute = document.getElementById('inputChute')
 
 let segundosPassados = 0 //Controla os segundos
@@ -11,6 +13,8 @@ let contador //Aqui encima pras duas funções acessarem
 
 let articleTimer = document.getElementById('articleTimer')
 let timerCorrendo
+
+let tbodyPersonagem = document.getElementById('tbodyPersonagem')
 
 let datalistPersonagens = document.getElementById('datalistPersonagens')
 
@@ -90,6 +94,8 @@ function validarChute(){
     let cabelo = personagemChutado.cabelo
     let olho = personagemChutado.olho
     let altura = personagemChutado.altura
+    
+    console.log(arco, posicao, pais, clube, cabelo, olho, altura)
 
     inputChute.value = ''
 
@@ -99,6 +105,29 @@ function validarChute(){
 
     }
 
-    console.log(arco, posicao, pais, clube, cabelo, olho, altura)
+    let dados = [arco, posicao, pais, clube, cabelo, olho, altura]
+    chutes.unshift(dados) //Adiciona o chute (em array) no começo do array
+
+    tbodyPersonagem.innerHTML = ''
+
+    for (const personagem of chutes) { //Cria uma linha de tabela pra cada registro e adiciona no corpo
+
+        let novoTr = 
+        
+        `<tr>
+
+            <th>${personagem[0]}</th>
+            <th>${personagem[1]}</th>
+            <th>${personagem[2]}</th>
+            <th>${personagem[3]}</th>
+            <th>${personagem[4]}</th>
+            <th>${personagem[5]}</th>
+            <th>${personagem[6]}</th>
+
+        </tr>`
+
+        tbodyPersonagem.innerHTML += novoTr
+        
+    }
 
 }
