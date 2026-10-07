@@ -1,3 +1,10 @@
+//pegando qual o usuario logado
+let usuario_ativo = sessionStorage.key(0)
+let pontos_ini = localStorage.getItem(usuario_ativo)
+let mostrar_user = document.getElementById("id_user")
+mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos_ini} pontos!`
+
+
 const personagens = [
 
     Isagi, Nagi, Raichi
@@ -93,6 +100,21 @@ function validarChute(){
 
     }
 
+    //to usando ja pra ver se ta funcionando os pontos
+    if(personagemChutado == personagemEscolhido){
+
+        
+        //pegando qual o usuario logado
+        let usuario_ativo = sessionStorage.key(0)
+        let pontos = Number(localStorage.getItem(usuario_ativo))
+
+        sessionStorage.setItem(usuario_ativo,pontos+1)
+        localStorage.setItem(usuario_ativo,pontos+1 )
+
+
+        let mostrar_user = document.getElementById("id_user")
+        mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
+    }
     inputChute.value = ''
 
     let arco = personagemChutado.arco
@@ -136,4 +158,31 @@ function validarChute(){
         
     }
 
+}
+
+function ranking(){
+
+    let usuarios = [];
+
+    for (i = 0; i < localStorage.length; i++) {
+        let chave = localStorage.key(i);
+        let valor = Number(localStorage.getItem(chave));
+
+        usuarios.push({chave,valor})
+    }
+
+    usuarios.sort((a,b) => b.valor - a.valor);
+
+    console.log(usuarios)
+    let resposta = ""
+    for (i = 0; i <localStorage.length; i++){
+        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com ${usuarios[i].valor} <br>`
+    }
+
+    Swal.fire({
+        title: "Ranking",
+        html: `${resposta}`,
+        icon: "success",
+        draggable: true
+});
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Lock</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/classe_blue_lock.js"></script>
     <script defer src="../js/banco_de_personagens.js"></script>
     <script defer src="../js/blue_lock.js"></script>
@@ -18,9 +19,11 @@
 
         <nav>
 
-            <a href="index.html">Início</a>
+            <a href="index.html">Sair</a>
             <a href="blue_lock.html">Blue Lock</a>
+            <p id="id_user"></p>
 
+            <button type="button" onclick="ranking()"> Ranking</button>
         </nav>
 
         <article id="articleTimer">Comece a adivinhar o personagem para iniciar a contagem</article>
@@ -66,8 +69,9 @@
 
         </table>
 
-        <!---->
+        <!--testando se o ranking funciona-->
 
+    
     </main>
 
     <hr>

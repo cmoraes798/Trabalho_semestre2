@@ -24,16 +24,21 @@
 
     <main> 
         
-        Login (usuário e senha devem ter pelo menos 1 caractere)
+        Criar conta (usuário e senha devem ter pelo menos 1 caractere) <br> <br>
 
         usuário: <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario" onchange="verificar()"> <br><br>
         senha: <input type="text" placeholder="Escreva a senha aqui" id="id_senha" onchange="verificar()"><br><br>
 
-        <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button><br><br>
+        <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button><br>
 
+        <hr>
+        Logar numa conta ja existente:
+        usuário: <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario_logar" onchange="verificar()"> <br><br>
+        senha: <input type="text" placeholder="Escreva a senha aqui" id="id_senha_logar" onchange="verificar()"><br><br>
+
+        <button id="id_botao_acesso_logar" type="button" onclick="acesso()"  class="desativado"> Acessar</button><br><br><br>
 
         <button type="button" onclick="ranking()">Ver ranking</button>
-
     </main> <br><br>
 
 

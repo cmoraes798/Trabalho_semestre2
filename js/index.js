@@ -1,4 +1,5 @@
 
+sessionStorage.clear()
 
 function acesso(){
 
@@ -6,16 +7,33 @@ function acesso(){
     let senha = document.getElementById("id_senha").value;
     let botao = document.getElementById("id_botao_acesso");
 
-    //vendo se a classe ta certa (ou seja, tem mais de 1 carcter na senha e no usuario)
-    if(botao.className == "ativado"){
+    let usuarios_nomes = Object.keys(localStorage)
 
-    usuario = {
-        "pontos" : 0,
-        "nome": nome
-    }
+    if (usuarios_nomes.includes(nome)){
+        Swal.fire({
+        title: "Escolha outro nome!",
+        html: `ja existe um usuario com esse nome.`,
+        icon: "error",
+        draggable: true
+        })
 
-    localStorage.setItem(nome,JSON.stringify(usuario));
-    window.location.href = "../html/blue_lock.html"    
+        return;
+    }else{
+        //vendo se a classe ta certa (ou seja, tem mais de 1 carcter na senha e no usuario)
+        if(botao.className == "ativado"){
+            localStorage.setItem(nome,0)
+            sessionStorage.setItem(nome,0)
+        
+            window.location.href = "../html/blue_lock.html"
+        }else{
+            Swal.fire({
+            title: "Minimo de caracteres",
+            html: `Minimo de 1 caractere por nome e senha!`,
+            icon: "error",
+            draggable: true
+        })
+        }
+        
 }
 }
 
@@ -36,18 +54,26 @@ function verificar(){
 
 function ranking(){
 
-    for ( i = 0; i < localStorage.length; i++){
+    let usuarios = [];
 
+    for (i = 0; i < localStorage.length; i++) {
         let chave = localStorage.key(i);
-        let valor = JSON.parse(localStorage.getItem(chave))
+        let valor = Number(localStorage.getItem(chave));
 
-        console.log(chave,valor)
+        usuarios.push({chave,valor})
     }
-    
+
+    usuarios.sort((a,b) => b.valor - a.valor);
+
+    console.log(usuarios)
+    let resposta = ""
+    for (i = 0; i <localStorage.length; i++){
+        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com ${usuarios[i].valor} <br>`
+    }
 
     Swal.fire({
         title: "Ranking",
-        html: ``,
+        html: `${resposta}`,
         icon: "success",
         draggable: true
 });
