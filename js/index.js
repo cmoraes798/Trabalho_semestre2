@@ -18,7 +18,9 @@ function acesso(){
         })
 
         return;
-    }else{
+    }else{ 
+
+        // chave : valor
         //vendo se a classe ta certa (ou seja, tem mais de 1 carcter na senha e no usuario)
         if(botao.className == "ativado"){
             localStorage.setItem(nome,0)
@@ -56,7 +58,7 @@ function ranking(){
 
     let usuarios = [];
 
-    for (i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         let chave = localStorage.key(i);
         let valor = Number(localStorage.getItem(chave));
 
@@ -67,7 +69,7 @@ function ranking(){
 
     console.log(usuarios)
     let resposta = ""
-    for (i = 0; i <localStorage.length; i++){
+    for (let i = 0; i <localStorage.length; i++){
         resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com ${usuarios[i].valor} <br>`
     }
 
