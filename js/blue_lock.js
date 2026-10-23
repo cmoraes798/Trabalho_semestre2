@@ -4,28 +4,26 @@ let pontos_ini = localStorage.getItem(usuario_ativo)
 let mostrar_user = document.getElementById("id_user")
 mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos_ini} pontos!`
 
-
 const personagens = [
 
     Isagi, Nagi, Raichi
 
 ]
+let personagemEscolhido
 
 const chutes = []
 
 let inputChute = document.getElementById('inputChute')
 
+let articleTimer = document.getElementById('articleTimer')
+let tbodyPersonagem = document.getElementById('tbodyPersonagem')
+let datalistPersonagens = document.getElementById('datalistPersonagens')
+
+let timerCorrendo
 let segundosPassados = 0 //Controla os segundos
 let contador //Aqui encima pras duas funções acessarem
 
-let articleTimer = document.getElementById('articleTimer')
-let timerCorrendo
-
-let tbodyPersonagem = document.getElementById('tbodyPersonagem')
-
-let datalistPersonagens = document.getElementById('datalistPersonagens')
-
-function completarListaDePersonagens(){ //Completa a lista de sugestões da pesquisa com os personagens do array
+function completarListaDePersonagens(){ //Completa a lista de sugestões da pesquisa com os personagens do array e tbm sorteia o personagem inicial pra adivinhar
 
     for (const personagem of personagens) {
 
@@ -37,9 +35,11 @@ function completarListaDePersonagens(){ //Completa a lista de sugestões da pesq
         
     }
 
+    sortearPersonagem()
+
 }
 
-function randomizador(){
+function randomizador(){ //Sorteia um num pra decidir um personagem aleatorio
 
     const num = Math.floor(Math.random() * personagens.length);
 
@@ -47,12 +47,16 @@ function randomizador(){
 
 }
 
-let personagemEscolhido = personagens[randomizador()] //Escolhe um personagem aleatório
-console.log(personagemEscolhido)
+function sortearPersonagem(){ //Sorteia o personagem aleatorio
+
+    personagemEscolhido = personagens[randomizador()] //Escolhe um personagem aleatório
+    console.log(personagemEscolhido)
+
+}
 
 //-------//
 
-function iniciarTimer(){
+function iniciarTimer(){ //Inicia ne
 
     contador = setInterval(() => { //Faz função a cada tal milissegundos
 
@@ -67,7 +71,7 @@ function iniciarTimer(){
 
 }
 
-function finalizarTimer(){
+function finalizarTimer(){ //Finaliza ne
 
     if (contador) {
 
@@ -79,7 +83,11 @@ function finalizarTimer(){
 
 //-------//
 
-function validarChute(){
+function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no chute
+
+
+    //Timer--------//
+
 
     if (timerCorrendo != true){
 
@@ -89,6 +97,10 @@ function validarChute(){
 
     let nomeChutado = inputChute.value
     let personagemChutado
+
+
+    //Encontrar o personagem que o cabron escreveu--------//
+
 
     for (const personagemTalvez of personagens) {
         
@@ -111,11 +123,16 @@ function validarChute(){
         sessionStorage.setItem(usuario_ativo,pontos+1)
         localStorage.setItem(usuario_ativo,pontos+1 )
 
+        finalizarTimer()
 
         let mostrar_user = document.getElementById("id_user")
         mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
     }
     inputChute.value = ''
+
+
+    //Pra armazenar os valores do personagem chutado e do sorteado e usar dps na tabela--------//
+
 
     let arco = personagemChutado.arco
     let posicao = personagemChutado.posicao
@@ -125,10 +142,47 @@ function validarChute(){
     let olho = personagemChutado.olho
     let altura = personagemChutado.altura
 
-    let dados = [arco, posicao, pais, clube, cabelo, olho, altura]
-    chutes.unshift(dados) //Adiciona o chute (em array) no começo do array
+    let dadosPersonagemChutado = [arco, posicao, pais, clube, cabelo, olho, altura]
+    //Esses dois devem estar na MESMA ORDEM
+    let dadosPersonagemEscolhido = [
+
+        personagemEscolhido.arco,
+        personagemEscolhido.posicao,
+        personagemEscolhido.pais,
+        personagemEscolhido.clube,
+        personagemEscolhido.cabelo,
+        personagemEscolhido.olho,
+        personagemEscolhido.altura
+
+    ]
+
+    chutes.unshift(dadosPersonagemChutado) //Adiciona o chute (em array) no começo do array
 
     tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
+
+
+    //Pra verificar quais valores acertou e quais errou--------//
+
+    
+    let acertos = []
+
+    for (const valor of dadosPersonagemChutado){
+
+        let i = dadosPersonagemChutado.indexOf(valor)
+
+        if(valor == dadosPersonagemEscolhido[i]){ //se termoChutado == termoCerto (tipo se cabelo loiro == preto)
+
+            acertos.push(valor)
+
+        }
+
+    }
+
+    console.log(acertos)
+
+
+    //Pra escrever na tabela--------//
+
 
     for (const personagem of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
 
@@ -160,7 +214,7 @@ function validarChute(){
 
 }
 
-function ranking(){
+function ranking(){ //Mermao, QUE (fica pra vc isso ai)
 
     let usuarios = [];
 
