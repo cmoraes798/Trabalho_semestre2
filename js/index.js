@@ -80,3 +80,19 @@ function ranking(){
         draggable: true
 });
 }
+
+
+
+function logar(){
+    let usuario = document.getElementById('id_usuario_logar').value
+    let usuarios_nomes = Object.keys(localStorage)
+    let pontos = localStorage.getItem(usuario)
+
+    if (usuarios_nomes.includes(usuario)){
+
+
+        sessionStorage.setItem(usuario,pontos)    
+        window.location.href = "../html/blue_lock.html"
+        }
+    
+}

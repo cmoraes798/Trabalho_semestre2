@@ -6,7 +6,13 @@ mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos_ini} pontos!`
 
 const personagens = [
 
-    Isagi, Nagi, Raichi
+    Yoichi, Seishiro, Jingo, Meguru, Hyoma, Shoei, Rin, Rensuke,
+    Reo, Gin, Gurimu, Tsurugi, Jyubei, Aoshi, Ryusei, Tabito,
+    Eita, Kenyu, Yo, Ikki, Junichi, Wataru, Yudai, Asahi,
+    Okuhito, Ryosuke, Hajime, Yukio, Shuto, Oliver, Sae, Nijiro,
+    Jin, Ranze, Gen, Miroku, Teppei, Michael, Alexis, Don,
+    Noel, Chris, Lavinho, Julian, Marc, Agi, Charles, Ryo,
+    Haruhiko
 
 ]
 let personagemEscolhido
@@ -127,6 +133,24 @@ function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no
 
         let mostrar_user = document.getElementById("id_user")
         mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
+
+        Swal.fire({
+        title: "Meus parabens!",
+        html: `Você acertou!`,
+        icon: "success",
+        draggable: true,
+        confirmButtonText: 'Jogar novamente!'
+        }).then((result) => {
+        
+            if (result.isConfirmed) {
+    
+                
+                window.location.href = "../html/blue_lock.html"
+
+            }
+        });
+        sortearPersonagem()
+        
     }
     inputChute.value = ''
 
@@ -156,35 +180,28 @@ function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no
 
     ]
 
-    chutes.unshift(dadosPersonagemChutado) //Adiciona o chute (em array) no começo do array
-
-    tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
-
-
     //Pra verificar quais valores acertou e quais errou--------//
 
-    
-    let acertos = []
+    let cores = []
 
-    for (const valor of dadosPersonagemChutado){
-
-        let i = dadosPersonagemChutado.indexOf(valor)
-
-        if(valor == dadosPersonagemEscolhido[i]){ //se termoChutado == termoCerto (tipo se cabelo loiro == preto)
-
-            acertos.push(valor)
-
+    for (let i = 0; i < dadosPersonagemChutado.length; i++) {
+        if (dadosPersonagemChutado[i] == dadosPersonagemEscolhido[i]) {
+            cores.push('lightgreen')
+        } else {
+            cores.push('salmon')
         }
-
     }
 
-    console.log(acertos)
+    chutes.unshift({ dados: dadosPersonagemChutado, cores })
+    tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
 
 
     //Pra escrever na tabela--------//
 
 
-    for (const personagem of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
+    for (const chute of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
+
+        const personagem = chute.dados
 
         let novoTr = 
 
@@ -198,13 +215,13 @@ function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no
         
         `<tr>
 
-            <th>${personagem[0]}</th> 
-            <th>${personagem[1]}</th>
-            <th>${personagem[2]}</th>
-            <th>${personagem[3]}</th>
-            <th>${personagem[4]}</th>
-            <th>${personagem[5]}</th>
-            <th>${personagem[6]} cm</th>
+            <th style="background-color: ${chute.cores[0]}">${personagem[0]}</th> 
+            <th style="background-color: ${chute.cores[1]}">${personagem[1]}</th>
+            <th style="background-color: ${chute.cores[2]}">${personagem[2]}</th>
+            <th style="background-color: ${chute.cores[3]}">${personagem[3]}</th>
+            <th style="background-color: ${chute.cores[4]}">${personagem[4]}</th>
+            <th style="background-color: ${chute.cores[5]}">${personagem[5]}</th>
+            <th style="background-color: ${chute.cores[6]}">${personagem[6]} m</th>
 
         </tr>`
 
