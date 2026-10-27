@@ -6,13 +6,12 @@ mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos_ini} pontos!`
 
 const personagens = [
 
-    Yoichi, Seishiro, Jingo, Meguru, Hyoma, Shoei, Rin, Rensuke,
-    Reo, Gin, Gurimu, Tsurugi, Jyubei, Aoshi, Ryusei, Tabito,
-    Eita, Kenyu, Yo, Ikki, Junichi, Wataru, Yudai, Asahi,
-    Okuhito, Ryosuke, Hajime, Yukio, Shuto, Oliver, Sae, Nijiro,
-    Jin, Ranze, Gen, Miroku, Teppei, Michael, Alexis, Don,
-    Noel, Chris, Lavinho, Julian, Marc, Agi, Charles, Ryo,
-    Haruhiko
+    Isagi, Nagi, Raichi, Bachira, Chigiri, Barou, Rin, Kunigami,
+    Reo, Gagamaru, Igarashi, Zantetsu, Aryu, Tokimitsu, Shidou, Karasu,
+    Otoya, Yukimiya, Hiori, Niko, Kuon, Imamura, Naruhaya,
+    Kira, Sendo, Aiku, Sae, Nanase, Kiyora, Kurona, Fukaku,
+    Kaiser, Ness, Lorenzo, Noel, Prince, Lavinho, Loki, Snuffy,
+    Agi, Charles
 
 ]
 let personagemEscolhido
