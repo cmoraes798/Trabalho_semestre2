@@ -14,11 +14,11 @@ const personagens = [
     Agi, Charles
 
 ]
-let personagemEscolhido
 
 const chutes = []
 
 let inputChute = document.getElementById('inputChute')
+let permitirChutes = true
 
 let articleTimer = document.getElementById('articleTimer')
 let tbodyPersonagem = document.getElementById('tbodyPersonagem')
@@ -52,10 +52,14 @@ function randomizador(){ //Sorteia um num pra decidir um personagem aleatorio
 
 }
 
+let personagemSorteado
+
 function sortearPersonagem(){ //Sorteia o personagem aleatorio
 
-    personagemEscolhido = personagens[randomizador()] //Escolhe um personagem aleatório
-    console.log(personagemEscolhido)
+    personagemSorteado = personagens[randomizador()] //Escolhe um personagem aleatório
+    console.log(personagemSorteado)
+
+    permitirChutes = true
 
 }
 
@@ -80,7 +84,7 @@ function finalizarTimer(){ //Finaliza ne
 
     if (contador) {
 
-        clearInterval(contador) //Limpa ué
+        clearInterval(contador) //Limpa o timer ne
         
     }
 
@@ -88,119 +92,110 @@ function finalizarTimer(){ //Finaliza ne
 
 //-------//
 
-function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no chute
+function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ver se acertou)
 
+    if(chutes.length < 6 && permitirChutes == true){
 
-    //Timer--------//
+        let nomeChutado = inputChute.value
+        let personagemChutado
 
-
-    if (timerCorrendo != true){
-
-        iniciarTimer()
-
-    }
-
-    let nomeChutado = inputChute.value
-    let personagemChutado
-
-
-    //Encontrar o personagem que o cabron escreveu--------//
-
-
-    for (const personagemTalvez of personagens) {
+        for (const personagemTalvez of personagens) {
         
-        if (personagemTalvez.nome.toLowerCase() === nomeChutado.toLowerCase()){
+            if (personagemTalvez.nome.toLowerCase() === nomeChutado.toLowerCase()){
 
-            personagemChutado = personagemTalvez
+                personagemChutado = personagemTalvez
+
+            }
+
+        }
+
+        validarChute(personagemChutado) //Manda o cabron pra ver se acertou
+
+        
+        //Timer--------//
+
+
+        if (timerCorrendo != true){
+
+            iniciarTimer()
 
         }
 
     }
 
-    //to usando ja pra ver se ta funcionando os pontos
-    if(personagemChutado == personagemEscolhido){
+}
 
-        
-        //pegando qual o usuario logado
-        let usuario_ativo = sessionStorage.key(0)
-        let pontos = Number(localStorage.getItem(usuario_ativo))
+function validarChute(personagemChutado){ //Toda a budega pra validar o que o usuario escreveu no chute
 
-        sessionStorage.setItem(usuario_ativo,pontos+1)
-        localStorage.setItem(usuario_ativo,pontos+1 )
-
-        finalizarTimer()
-
-        let mostrar_user = document.getElementById("id_user")
-        mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
-
-        Swal.fire({
-        title: "Meus parabens!",
-        html: `Você acertou!`,
-        icon: "success",
-        draggable: true,
-        confirmButtonText: 'Jogar novamente!'
-        }).then((result) => {
-        
-            if (result.isConfirmed) {
-    
-                
-                window.location.href = "../html/blue_lock.html"
-
-            }
-        });
-        sortearPersonagem()
-        
-    }
-    inputChute.value = ''
-
+    console.log(personagemChutado)
 
     //Pra armazenar os valores do personagem chutado e do sorteado e usar dps na tabela--------//
 
-
-    let arco = personagemChutado.arco
-    let posicao = personagemChutado.posicao
-    let pais = personagemChutado.pais
-    let clube = personagemChutado.clube
-    let cabelo = personagemChutado.cabelo
-    let olho = personagemChutado.olho
-    let altura = personagemChutado.altura
-
-    let dadosPersonagemChutado = [arco, posicao, pais, clube, cabelo, olho, altura]
+    let dadosPersonagemChutado = [ //Deixa em array pra ficar melhor
+        
+        personagemChutado.arco,
+        personagemChutado.posicao,
+        personagemChutado.pais,
+        personagemChutado.clube,
+        personagemChutado.cabelo,
+        personagemChutado.olho,
+        personagemChutado.altura
+    
+    ]
     //Esses dois devem estar na MESMA ORDEM
-    let dadosPersonagemEscolhido = [
+    let dadosPersonagemSorteado = [
 
-        personagemEscolhido.arco,
-        personagemEscolhido.posicao,
-        personagemEscolhido.pais,
-        personagemEscolhido.clube,
-        personagemEscolhido.cabelo,
-        personagemEscolhido.olho,
-        personagemEscolhido.altura
+        personagemSorteado.arco,
+        personagemSorteado.posicao,
+        personagemSorteado.pais,
+        personagemSorteado.clube,
+        personagemSorteado.cabelo,
+        personagemSorteado.olho,
+        personagemSorteado.altura
 
     ]
 
     //Pra verificar quais valores acertou e quais errou--------//
 
-    let cores = []
+    const cores = []
 
-    for (let i = 0; i < dadosPersonagemChutado.length; i++) {
-        if (dadosPersonagemChutado[i] == dadosPersonagemEscolhido[i]) {
-            cores.push('lightgreen')
-        } else {
-            cores.push('salmon')
+    for (const valor of dadosPersonagemChutado) {
+
+        let i = dadosPersonagemChutado.indexOf(valor)
+    
+        if (valor === dadosPersonagemSorteado[i]){
+
+            cores.push(`lightgreen`)
+
         }
+        else{
+
+            cores.push(`salmon`)
+
+        }
+
     }
 
-    chutes.unshift({ dados: dadosPersonagemChutado, cores })
-    tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
+    //for (let i = 0; i < dadosPersonagemChutado.length; i++) {
+        //if (dadosPersonagemChutado[i] == dadosPersonagemSorteado[i]) {
+            //cores.push('lightgreen')
+         //} else {
+            //cores.push('salmon')
+        //}
+    //}
 
+    chutes.unshift([dadosPersonagemChutado, cores]) //Me explica oq tu fez aqui, pq ficou dando erro ent eu coloquei em array msm
+    tbodyPersonagem.innerHTML = '' //Limpa a table pra percorrer e adicionar dnv
 
     //Pra escrever na tabela--------//
 
 
-    for (const chute of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
+    for (const personagem of chutes) { //Cria uma linha de tabela (tr = table row = linha de tabela) pra cada registro e adiciona no corpo
 
-        const personagem = chute.dados
+        //const personagem = chute.dados
+
+        const coresPersonagemTable = personagem[1]
+        const dadosPersonagemTable = personagem[0]
 
         let novoTr = 
 
@@ -214,13 +209,13 @@ function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no
         
         `<tr>
 
-            <th style="background-color: ${chute.cores[0]}">${personagem[0]}</th> 
-            <th style="background-color: ${chute.cores[1]}">${personagem[1]}</th>
-            <th style="background-color: ${chute.cores[2]}">${personagem[2]}</th>
-            <th style="background-color: ${chute.cores[3]}">${personagem[3]}</th>
-            <th style="background-color: ${chute.cores[4]}">${personagem[4]}</th>
-            <th style="background-color: ${chute.cores[5]}">${personagem[5]}</th>
-            <th style="background-color: ${chute.cores[6]}">${personagem[6]} m</th>
+            <th style="background-color: ${coresPersonagemTable[0]}">${dadosPersonagemTable[0]}</th> 
+            <th style="background-color: ${coresPersonagemTable[1]}">${dadosPersonagemTable[1]}</th>
+            <th style="background-color: ${coresPersonagemTable[2]}">${dadosPersonagemTable[2]}</th>
+            <th style="background-color: ${coresPersonagemTable[3]}">${dadosPersonagemTable[3]}</th>
+            <th style="background-color: ${coresPersonagemTable[4]}">${dadosPersonagemTable[4]}</th>
+            <th style="background-color: ${coresPersonagemTable[5]}">${dadosPersonagemTable[5]}</th>
+            <th style="background-color: ${coresPersonagemTable[6]}">${dadosPersonagemTable[6]}</th>
 
         </tr>`
 
@@ -228,7 +223,60 @@ function validarChute(){ //Toda a budega pra validar o que o usuario escreveu no
         
     }
 
+        //to usando ja pra ver se ta funcionando os pontos
+    if(personagemChutado == personagemSorteado && chutes.length <= 6){
+
+        permitirChutes = false
+        finalizarTimer()
+        
+        //pegando qual o usuario logado
+        let usuario_ativo = sessionStorage.key(0)
+        let pontos = Number(localStorage.getItem(usuario_ativo))
+
+        sessionStorage.setItem(usuario_ativo,pontos+1)
+        localStorage.setItem(usuario_ativo,pontos+1 )
+
+        let mostrar_user = document.getElementById("id_user")
+        mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
+
+        Swal.fire({
+        title: "Meus parabens!",
+        html: `Você acertou!`,
+        icon: "success",
+        draggable: true,
+        confirmButtonText: 'Jogar novamente'
+        }).then((result) => {
+        
+            if (result.isConfirmed) {
+    
+                window.location.href = "../html/blue_lock.html"
+
+            }
+        });
+        sortearPersonagem()
+        
+    }
+    else if(personagemChutado != personagemSorteado && chutes.length == 6){
+
+        permitirChutes = false
+        finalizarTimer()
+
+        Swal.fire({ //Alert kawaii
+
+            title: "Você perdeu!",
+            text: `Suas tentativas esgotaram. O personagem correto era ${personagemSorteado.nome}!`,
+            icon: "error"
+
+        });
+
+    }
+    
+    inputChute.value = ''
+
+
 }
+
+//-------//
 
 function ranking(){ //Mermao, QUE (fica pra vc isso ai)
 
