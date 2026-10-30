@@ -255,8 +255,8 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
 
         Swal.fire({
-        title: "Meus parabens!",
-        html: `Você acertou!`,
+        title: "Você venceu",
+        html: `Adivinhou ${personagemSorteado.nome} corretamente`,
         icon: "success",
         draggable: true,
         confirmButtonText: 'Jogar novamente'
@@ -278,10 +278,18 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
 
         Swal.fire({ //Alert kawaii
 
-            title: "Você perdeu!",
-            text: `Suas tentativas esgotaram. O personagem correto era ${personagemSorteado.nome}!`,
-            icon: "error"
+        title: "Você perdeu",
+        text: `Suas tentativas esgotaram, o personagem correto era ${personagemSorteado.nome}`,
+        icon: "error",
+        draggable: true,
+        confirmButtonText: 'Jogar novamente'
+        }).then((result) => {
+        
+            if (result.isConfirmed) {
+    
+                window.location.href = "../html/blue_lock.html"
 
+            }
         });
 
     }
