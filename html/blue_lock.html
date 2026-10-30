@@ -20,13 +20,11 @@
         <nav>
 
             <a href="index.html">Sair</a>
-            <a href="blue_lock.html">Blue Lock</a>
             <p id="id_user"></p>
 
-            <button type="button" onclick="ranking()"> Ranking</button>
-        </nav>
+            <button type="button" onclick="ranking()">Ver ranking</button>
 
-        <article id="articleTimer">Comece a adivinhar o personagem para iniciar a contagem</article>
+        </nav>
 
     </header>
 
@@ -34,10 +32,14 @@
 
     <main>
 
+        <h1>Blue Lock</h1>
+
+        <article id="articleTimer">Comece a adivinhar para iniciar o cronômetro</article>
+
         <section>
 
-            <label for="inputPesquisa">Pesquisar personagem</label>
-            <input type="text" id="inputChute" list="datalistPersonagens" placeholder="Nome">
+            <label for="inputPesquisa">Adivinhar personagem:</label>
+            <input type="text" id="inputChute" list="datalistPersonagens" placeholder="Chute aqui">
 
             <datalist id="datalistPersonagens"></datalist>
 
@@ -46,6 +48,7 @@
         </section>
 
         <!--Table dos valores dos personagens-->
+        <hr>
 
         <table>
 
@@ -70,7 +73,6 @@
         </table>
 
         <!--testando se o ranking funciona-->
-
     
     </main>
 

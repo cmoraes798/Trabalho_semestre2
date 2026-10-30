@@ -70,7 +70,7 @@ function iniciarTimer(){ //Inicia ne
     contador = setInterval(() => { //Faz função a cada tal milissegundos
 
         segundosPassados ++
-        articleTimer.innerHTML = `Tempo corrido: ${segundosPassados}`
+        articleTimer.innerHTML = `Segundos corridos: ${segundosPassados}`
 
         console.log(segundosPassados)
         
@@ -97,7 +97,7 @@ function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ve
     if(chutes.length < 6 && permitirChutes == true){
 
         let nomeChutado = inputChute.value
-        let personagemChutado
+        let personagemChutado = null
 
         for (const personagemTalvez of personagens) {
         
@@ -109,15 +109,30 @@ function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ve
 
         }
 
-        validarChute(personagemChutado) //Manda o cabron pra ver se acertou
+        if(personagemChutado != null){
 
-        
-        //Timer--------//
+            validarChute(personagemChutado) //Manda o cabron pra ver se acertou
+            articleTimer.innerHTML = `Segundos corridos: 0`
 
+            //Timer--------//
 
-        if (timerCorrendo != true){
+            if (timerCorrendo != true){
 
-            iniciarTimer()
+                iniciarTimer()
+
+            }
+
+        }
+        else{
+
+            Swal.fire({
+
+                title: "Personagem não encontrado",
+                text: "Certifique-se de escrever o nome corretamente",
+                icon: "question",
+                draggable: true
+
+            });
 
         }
 
@@ -215,7 +230,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
             <th style="background-color: ${coresPersonagemTable[3]}">${dadosPersonagemTable[3]}</th>
             <th style="background-color: ${coresPersonagemTable[4]}">${dadosPersonagemTable[4]}</th>
             <th style="background-color: ${coresPersonagemTable[5]}">${dadosPersonagemTable[5]}</th>
-            <th style="background-color: ${coresPersonagemTable[6]}">${dadosPersonagemTable[6]}</th>
+            <th style="background-color: ${coresPersonagemTable[6]}">${dadosPersonagemTable[6]} m</th>
 
         </tr>`
 
@@ -298,9 +313,11 @@ function ranking(){ //Mermao, QUE (fica pra vc isso ai)
     }
 
     Swal.fire({
-        title: "Ranking",
+        title: "Ranking de usuários",
         html: `${resposta}`,
-        icon: "success",
+        imageUrl: "https://cdn-icons-png.flaticon.com/512/4015/4015275.png",
+        imageWidth: 200,
+        imageHeight: 200,
         draggable: true
-});
+    });
 }

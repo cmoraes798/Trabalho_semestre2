@@ -12,35 +12,40 @@
 <body>
 
     <header>
-
-        <nav>
-
-            <a href="index.html">Início</a>
-            <a href="blue_lock.html">Blue Lock</a>
-
-        </nav>
+ 
+        <h1>Login</h1>
 
     </header>
 
     <main> 
         
-        Criar conta (usuário e senha devem ter pelo menos 1 caractere) <br> <br>
+        <h2>Criar conta</h2>
 
-        <label for="id_usuario">Usuário:</label> <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario" onchange="verificar()"> <br><br>
-        <label for="id_senha">Senha:</labe> <input type="text" placeholder="Escreva a senha aqui" id="id_senha" onchange="verificar()"><br><br>
+        <label for="id_usuario">Usuário:</label>
+        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario" onchange="verificar()"><br>
 
-        <button id="id_botao_acesso" type="button" onclick="acesso()"  class="desativado"> Acessar</button><br>
+        <label for="id_senha">Senha:</label>
+        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha" onchange="verificar()"><br>
+
+        <button id="id_botao_acesso" type="button" onclick="acesso()" class="desativado">Criar</button><br>
 
         <hr>
-        Logar numa conta ja existente: <br>
-        <label for="id_usuario_logar">Usuário:</label> <input type="text" placeholder="Escreva o úsuario aqui" id="id_usuario_logar" onchange="verificar()"> <br><br>
-        <label for="id_senha_logar">Senha:</label> <input type="text" placeholder="Escreva a senha aqui" id="id_senha_logar" onchange="verificar()"><br><br>
 
-        <button id="id_botao_acesso_logar" type="button" onclick="logar()" class="desativado"> Acessar</button><br><br><br>
+        <h2>Entrar</h2>
 
-        <button type="button" onclick="ranking()">Ver ranking</button>
+        <label for="id_usuario_logar">Usuário:</label>
+        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario_logar" onchange="verificar()"><br>
+        
+        <label for="id_senha_logar">Senha:</label>
+        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha_logar" onchange="verificar()"><br>
 
-    </main> <br><br>
+        <button id="id_botao_acesso_logar" type="button" onclick="logar()" class="desativado"> Acessar</button><br>
+
+        <hr>
+
+        <button type="button" onclick="ranking()">Ver ranking</button><br>
+
+    </main>
 
     <footer></footer>
     

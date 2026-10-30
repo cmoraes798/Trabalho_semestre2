@@ -1,4 +1,3 @@
-
 sessionStorage.clear()
 
 function acesso(){
@@ -11,8 +10,8 @@ function acesso(){
 
     if (usuarios_nomes.includes(nome)){
         Swal.fire({
-        title: "Escolha outro nome!",
-        html: `ja existe um usuario com esse nome.`,
+        title: "Escolha outro nome",
+        html: `Já existe um usuário com este nome`,
         icon: "error",
         draggable: true
         })
@@ -29,8 +28,8 @@ function acesso(){
             window.location.href = "../html/blue_lock.html"
         }else{
             Swal.fire({
-            title: "Minimo de caracteres",
-            html: `Minimo de 1 caractere por nome e senha!`,
+            title: "Caracteres insifucientes",
+            html: `Minimo de um (1) caractere para nome e senha`,
             icon: "error",
             draggable: true
         })
@@ -70,13 +69,15 @@ function ranking(){
     console.log(usuarios)
     let resposta = ""
     for (let i = 0; i <localStorage.length; i++){
-        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com ${usuarios[i].valor} <br>`
+        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com pontuação ${usuarios[i].valor}<br>`
     }
 
     Swal.fire({
-        title: "Ranking",
+        title: "Ranking de usuários",
         html: `${resposta}`,
-        icon: "success",
+        imageUrl: "https://cdn-icons-png.flaticon.com/512/4015/4015275.png",
+        imageWidth: 200,
+        imageHeight: 200,
         draggable: true
 });
 }
@@ -89,7 +90,6 @@ function logar(){
     let pontos = localStorage.getItem(usuario)
 
     if (usuarios_nomes.includes(usuario)){
-
 
         sessionStorage.setItem(usuario,pontos)    
         window.location.href = "../html/blue_lock.html"
