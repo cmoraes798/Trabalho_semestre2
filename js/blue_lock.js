@@ -2,7 +2,7 @@
 let usuario_ativo = sessionStorage.key(0)
 let pontos_ini = localStorage.getItem(usuario_ativo)
 let mostrar_user = document.getElementById("id_user")
-mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos_ini} pontos!`
+mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos_ini} pontos!`
 
 const personagens = [
 

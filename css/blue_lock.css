@@ -1,0 +1,78 @@
+/* Formatação zerada e fontes */
+* {
+    margin: 0;                                         /* Remove margens padrão do navegador */
+    padding: 0;                                        /* Remove padding padrão do navegador */
+    box-sizing: border-box;                            /* Inclui border e padding nas medidas */
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace; /* Define a fonte padrão da página */
+}
+
+body {
+    background-color: #7184d6;                         /* Fundo claro para toda a página */
+    color: #ffffff;                                    /* Cor padrão do texto */
+    /*line-height: 1.5;                                  /* Altura de linha mais confortável */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;                                  /* Deixa os títulos mais destacados */
+}
+article, label, tr {
+    font-weight: 500;
+}
+a, p {
+    font-weight: 400;
+}
+
+header{
+
+    display: flex;                                     /* Layout flexível para alinhamento */
+    align-items: center;                               /* Centraliza itens verticalmente */
+    justify-content: space-between;                    /* Espaça itens nas extremidades */
+    flex-wrap: wrap;                                   /* Permite quebra em telas menores */
+    gap: 1rem;                                         /* Espaço entre itens do cabeçalho */
+    position: relative;                                /* Posição relativa para posicionamento interno */
+    width: 100%;
+
+    background-color: #ffffff;
+
+}
+
+header h1{
+
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 2.5%;
+
+    color: #7184d6;
+
+}
+
+header nav{
+
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 2.5%;  
+
+}
+
+a{
+
+    color: #7184d6;                                    /* Cor azul dos links */
+    text-decoration: none;                             /* Remove o sublinhado padrão */
+    font-size: clamp(1rem, 1.8vw, 1.3rem);            /* Tamanho de texto responsivo */
+    font-weight: bold;                                 /* Negrito para melhor visibilidade */
+
+}a:hover {
+    text-decoration: underline;                        /* Sublinhado ao passar o mouse */
+}
+
+hr{
+
+    border: none;
+    height: 2px;
+    background-color: #ffffff;
+    width: 75%;
+    margin: 2.5% auto;
+
+}
