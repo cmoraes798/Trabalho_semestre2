@@ -14,10 +14,36 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;                                  /* Deixa os títulos mais destacados */
+
+    display: flex;
+    justify-content: center;
 }
-article, label, tr {
+
+/*--------*/
+
+article{
+
     font-weight: 500;
+    font-size: 125%;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1%;
+    margin-bottom: 1%;
+
 }
+
+label{
+
+    font-weight: 600;
+    font-size: 125%;
+    display: flex;
+    justify-content: center;
+
+}
+
+/*--------*/
+
 a, p {
     font-weight: 400;
 }
