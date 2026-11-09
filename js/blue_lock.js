@@ -183,12 +183,12 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
     
         if (valor === dadosPersonagemSorteado[i]){
 
-            cores.push(`lightgreen`)
+            cores.push(`#5ac096`)
 
         }
         else{
 
-            cores.push(`salmon`)
+            cores.push(` rgb(255, 155, 97)`)
 
         }
 

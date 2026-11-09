@@ -95,7 +95,7 @@ input{
 }
 input:focus{
 
-    border-color: #59c7d6;
+    border-color: rgb(255, 155, 97);
 
 }
 
@@ -180,14 +180,18 @@ hr{
 
 /*--------*/
 
-tr{
+table thead tr th{
 
     text-align: center;
+
+    padding: 1rem;
 
 }
-th{
+table tbody th{
 
     text-align: center;
+
+    padding: 1rem;
 
 }
 
@@ -196,15 +200,18 @@ table{
     margin-left: auto;
     margin-right: auto;
 
-    background-color: #7184d6;
+    background-color: #7184d6; 
     border-collapse: collapse;                         /* Junta bordas das células */
-
-    border: 5px solid;
     font-size: 150%;
 
 }
 table thead{
 
-    background-color: #59c7d6;
+    background-color: #7184d6;
+
+}
+tbody{
+
+    border-radius: 1rem; 
 
 }
