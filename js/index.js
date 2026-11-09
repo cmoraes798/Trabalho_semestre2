@@ -93,6 +93,13 @@ function logar(){
 
         sessionStorage.setItem(usuario,pontos)    
         window.location.href = "../html/blue_lock.html"
-        }
+    }else{
+        Swal.fire({
+            title: "Úsuario não encontrado!",
+            html: `Esse úsuario não existe! Garanta que a escrita esa correta. (Letras maiúsculas e minusculas são diferenciadas)`,
+            icon: "error",
+            draggable: true
+        })
+    }
     
 }
