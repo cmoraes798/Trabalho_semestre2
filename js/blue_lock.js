@@ -85,6 +85,9 @@ function finalizarTimer(){ //Finaliza ne
     if (contador) {
 
         clearInterval(contador) //Limpa o timer ne
+        timerCorrendo = false
+
+        articleTimer.innerHTML = `Segundos corridos: ${segundosPassados}`
         
     }
 
@@ -111,16 +114,16 @@ function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ve
 
         if(personagemChutado != null){
 
-            validarChute(personagemChutado) //Manda o cabron pra ver se acertou
-            articleTimer.innerHTML = `Segundos corridos: 0`
-
-            //Timer--------//
-
             if (timerCorrendo != true){
 
+                articleTimer.innerHTML = `Segundos corridos: 0`
                 iniciarTimer()
 
             }
+
+            validarChute(personagemChutado) //Manda o cabron pra ver se acertou
+
+            //Timer--------//
 
         }
         else{
@@ -256,7 +259,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
 
         Swal.fire({
         title: "Você venceu",
-        html: `Adivinhou ${personagemSorteado.nome} corretamente`,
+        html: `Adivinhou ${personagemSorteado.nome} corretamente em ${segundosPassados} segundos`,
         icon: "success",
         draggable: true,
         confirmButtonText: 'Jogar novamente'
@@ -268,7 +271,6 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
 
             }
         });
-        sortearPersonagem()
         
     }
     else if(personagemChutado != personagemSorteado && chutes.length == 6){
