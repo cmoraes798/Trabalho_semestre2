@@ -38,12 +38,18 @@ function acesso(){
 }
 }
 
-function verificar(){
+function verificar(campo){
 
     console.log()
     let usuario = document.getElementById("id_usuario").value;
     let senha = document.getElementById("id_senha").value;
     let botao = document.getElementById("id_botao_acesso");
+
+    if (campo.id.endsWith("_logar")){
+        usuario = document.getElementById("id_usuario_logar").value;
+        senha = document.getElementById("id_senha_logar").value;
+        botao = document.getElementById("id_botao_acesso_logar");
+    }
 
     if (usuario.length < 1 || senha.length < 1){
         botao.className = "desativado";
