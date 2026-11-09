@@ -16,20 +16,24 @@ header {
 	background-color: #ffffff;
 }
 
-h1,
-h2 {
-	text-align: center;
-	font-weight: 600;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;                                  /* Deixa os títulos mais destacados */
+
+    display: flex;
+    justify-content: center;
+
+    margin: 1%;
 }
 
-h1 {
-	color: #7184d6;
-	font-size: clamp(2rem, 8vw, 3.5rem);
-}
+h1{
 
-h2 {
-	margin: 1.5rem 0 1rem;
-	font-size: 1.5rem;
+    font-size: 450%;
+
+}
+h2{
+
+    font-size: 200%;
+
 }
 
 main {
@@ -86,4 +90,38 @@ hr {
 	margin: 1.5rem auto;
 	border: 0;
 	background-color: #ffffff;
+}
+
+header{
+
+    display: flex;                                     /* Layout flexível para alinhamento */
+    align-items: center;                               /* Centraliza itens verticalmente */
+    justify-content: space-between;                    /* Espaça itens nas extremidades */
+    flex-wrap: wrap;                                   /* Permite quebra em telas menores */
+    gap: 1rem;                                         /* Espaço entre itens do cabeçalho */
+    position: relative;                                /* Posição relativa para posicionamento interno */
+    width: 100%;
+
+    background-color: #ffffff;
+
+}
+
+header h2{
+
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 2.5%;
+
+    color: #7184d6;
+
+}
+
+header nav{
+
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 2.5%;  
+
 }
