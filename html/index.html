@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início</title>
+    <link rel="stylesheet" href="../css/index.css">
 
 </head>
 
@@ -22,10 +23,10 @@
         <h2>Criar conta</h2>
 
         <label for="id_usuario">Usuário:</label>
-        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario" onchange="verificar()"><br>
+        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario" oninput="verificar(this)"><br>
 
         <label for="id_senha">Senha:</label>
-        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha" onchange="verificar()"><br>
+        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha" oninput="verificar(this)"><br>
 
         <button id="id_botao_acesso" type="button" onclick="acesso()" class="desativado">Criar</button><br>
 
@@ -34,10 +35,10 @@
         <h2>Entrar</h2>
 
         <label for="id_usuario_logar">Usuário:</label>
-        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario_logar" onchange="verificar()"><br>
+        <input type="text" placeholder="Escreva seu nome aqui" id="id_usuario_logar" oninput="verificar(this)"><br>
         
         <label for="id_senha_logar">Senha:</label>
-        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha_logar" onchange="verificar()"><br>
+        <input type="text" placeholder="Escreva sua senha aqui" id="id_senha_logar" oninput="verificar(this)"><br>
 
         <button id="id_botao_acesso_logar" type="button" onclick="logar()" class="desativado"> Acessar</button><br>
 
