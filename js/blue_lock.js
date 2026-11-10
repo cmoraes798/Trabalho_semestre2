@@ -23,6 +23,7 @@ let permitirChutes = true
 let articleTimer = document.getElementById('articleTimer')
 let tbodyPersonagem = document.getElementById('tbodyPersonagem')
 let datalistPersonagens = document.getElementById('datalistPersonagens')
+let btnJogarNovamente = document.getElementById('btnJogarNovamente')
 
 let timerCorrendo
 let segundosPassados = 0 //Controla os segundos
@@ -183,12 +184,12 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
     
         if (valor === dadosPersonagemSorteado[i]){
 
-            cores.push(`#5ac096`)
+            cores.push(`rgb(29, 202, 86)`)
 
         }
         else{
 
-            cores.push(` rgb(255, 155, 97)`)
+            cores.push(`rgb(243, 121, 51)`)
 
         }
 
@@ -245,6 +246,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
     if(personagemChutado == personagemSorteado && chutes.length <= 6){
 
         permitirChutes = false
+        btnJogarNovamente.disabled = false
         finalizarTimer()
         
         //pegando qual o usuario logado
@@ -267,7 +269,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         
             if (result.isConfirmed) {
     
-                window.location.href = "../html/blue_lock.html"
+                recarregarPag()
 
             }
         });
@@ -289,7 +291,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         
             if (result.isConfirmed) {
     
-                window.location.href = "../html/blue_lock.html"
+                recarregarPag()
 
             }
         });
@@ -330,4 +332,10 @@ function ranking(){ //Mermao, QUE (fica pra vc isso ai)
         imageHeight: 200,
         draggable: true
     });
+}
+
+function recarregarPag(){
+
+    window.location.href = "../html/blue_lock.html"
+
 }
