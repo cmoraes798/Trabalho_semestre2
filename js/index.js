@@ -75,7 +75,7 @@ function ranking(){
     console.log(usuarios)
     let resposta = ""
     for (let i = 0; i <localStorage.length; i++){
-        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com pontuação ${usuarios[i].valor}<br>`
+        resposta +=  `<b>${i+1}º lugar</b>: ${usuarios[i].chave} com pontuação <b>${usuarios[i].valor}</b><br>`
     }
 
     Swal.fire({

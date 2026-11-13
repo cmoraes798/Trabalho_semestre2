@@ -20,7 +20,7 @@ const chutes = []
 let inputChute = document.getElementById('inputChute')
 let permitirChutes = true
 
-let articleTimer = document.getElementById('articleTimer')
+let timer = document.getElementById('timer')
 let tbodyPersonagem = document.getElementById('tbodyPersonagem')
 let datalistPersonagens = document.getElementById('datalistPersonagens')
 let btnJogarNovamente = document.getElementById('btnJogarNovamente')
@@ -71,7 +71,7 @@ function iniciarTimer(){ //Inicia ne
     contador = setInterval(() => { //Faz função a cada tal milissegundos
 
         segundosPassados ++
-        articleTimer.innerHTML = `Segundos corridos: ${segundosPassados}`
+        timer.innerHTML = `Segundos corridos: ${segundosPassados}`
 
         console.log(segundosPassados)
         
@@ -88,7 +88,7 @@ function finalizarTimer(){ //Finaliza ne
         clearInterval(contador) //Limpa o timer ne
         timerCorrendo = false
 
-        articleTimer.innerHTML = `Segundos corridos: ${segundosPassados}`
+        timer.innerHTML = `Segundos corridos: ${segundosPassados}`
         
     }
 
@@ -117,7 +117,7 @@ function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ve
 
             if (timerCorrendo != true){
 
-                articleTimer.innerHTML = `Segundos corridos: 0`
+                timer.innerHTML = `Segundos corridos: 0`
                 iniciarTimer()
 
             }
@@ -321,7 +321,7 @@ function ranking(){ //Mermao, QUE (fica pra vc isso ai)
     console.log(usuarios)
     let resposta = ""
     for (i = 0; i <localStorage.length; i++){
-        resposta +=  `${i+1}º lugar: ${usuarios[i].chave} com ${usuarios[i].valor} <br>`
+        resposta +=  `<b>${i+1}º lugar</b>: ${usuarios[i].chave} com <b>${usuarios[i].valor}</b> <br>`
     }
 
     Swal.fire({

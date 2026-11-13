@@ -16,6 +16,8 @@
 
 <body onload="completarListaDePersonagens()">
 
+    <!---->
+
     <header>
 
         <h2>Anitermo</h2>
@@ -28,11 +30,15 @@
 
     </header>
 
+    <!---->
+
     <hr>
 
     <main>
 
         <h1>Blue Lock</h1>
+
+        <!---->
 
         <article>
 
@@ -42,29 +48,36 @@
 
         </article>
 
+        <!---->
+        
         <hr>
+
+        <!---->
 
         <h2>Adivinhar personagem</h2>
 
-        <section>
+        <section class="sectGrid">
 
-            <input type="text" id="inputChute" list="datalistPersonagens" placeholder="Chute aqui">
-
+            <input type="text" spellcheck="false" id="inputChute" list="datalistPersonagens" placeholder="Chute aqui">
             <datalist id="datalistPersonagens"></datalist>
-
-        </section>
-
-        <article>
 
             <button type="button" onclick="iniciarChute()">Chutar</button>
 
-        </article>
+        </section>
 
         <!--Table dos valores dos personagens-->
         
         <hr>
 
-        <article id="articleTimer">Comece a adivinhar para iniciar o cronômetro</article>
+        <!---->
+
+        <section class="sectFlex">
+
+            <time id="timer">Comece a adivinhar para iniciar o cronômetro</time>
+
+        </section>
+
+        <!---->
 
         <table>
 
@@ -88,11 +101,15 @@
 
         </table>
 
-        <article>
+        <!---->
+
+        <hr>
+
+        <section class="sectFlex">
 
             <button type="button" disabled id="btnJogarNovamente" onclick="recarregarPag()">Jogar novamente</button>
 
-        </article>
+        </section>
 
         <!--testando se o ranking funciona-->
     
