@@ -97,17 +97,11 @@ p{
 
 }
 
-time{
-
-
-
-}
-
 /*--------*/
 
 input{
 
-    border: 5px solid white;                         /* Borda cinza clara */
+    border: 4px solid white;                         /* Borda cinza clara */
     border-radius: 1rem;     
     
     color: black;
@@ -118,7 +112,7 @@ input{
 
     font-size: 125%;
 
-    padding: 2,5%;
+    padding: 2.5%;
     margin: 5%;
 
 }
@@ -141,7 +135,7 @@ button{
     background-color: rgb(243, 121, 51);
     color: #ffffff;
 
-    border: 5px solid rgb(243, 121, 51);
+    border: 4px solid rgb(243, 121, 51);
     border-radius: 1rem;
 
     cursor: pointer;
@@ -150,13 +144,13 @@ button{
 button:hover {
 	background-color: rgb(223, 78, 34);
     
-    border: 5px solid white;
+    border: 4px solid white;
 
 }
 button:disabled {
 	background-color: #cbd5e1;
 	color: #475569;
-    border: 5px solid #cbd5e1;
+    border: 4px solid #cbd5e1;
 	cursor: not-allowed;
 }
 
@@ -233,7 +227,7 @@ table thead tr th{
 
 table tbody tr{
 
-    border: 5px solid white;                         /* Borda cinza clara */
+    border: 4px solid white;                         /* Borda cinza clara */
     border-radius: 1rem;     
 
 }
