@@ -26,33 +26,90 @@
         
         <h2>Criar conta</h2>
 
+        <!---->
+
         <label for="id_usuario">Usuário:</label>
-        <input type="text" spellcheck="false" placeholder="Escreva seu nome aqui" id="id_usuario" oninput="verificar(this)"><br>
 
+        <section class="sectFlex">
+
+            <input type="text" spellcheck="false" placeholder="Escreva seu nome aqui" id="id_usuario" oninput="verificar(this)"><br>
+
+        </section>
+
+        <!---->
+        
         <label for="id_senha">Senha:</label>
-        <input type="text" spellcheck="false" placeholder="Escreva sua senha aqui" id="id_senha" oninput="verificar(this)"><br>
 
-        <button id="id_botao_acesso" type="button" onclick="acesso()" class="desativado">Criar</button><br>
+        <section class="sectFlex">
+
+            <input type="text" spellcheck="false" placeholder="Escreva sua senha aqui" id="id_senha" oninput="verificar(this)"><br>
+
+        </section>
+
+        <!---->
+
+        <section class="sectFlex">
+
+            <button id="id_botao_acesso" type="button" onclick="acesso()" class="desativado">Criar</button><br>
+
+        </section>
+
+        <!---->
 
         <hr>
 
         <h2>Entrar</h2>
 
+        <!---->
+
         <label for="id_usuario_logar">Usuário:</label>
-        <input type="text" spellcheck="false" placeholder="Escreva seu nome aqui" id="id_usuario_logar" oninput="verificar(this)"><br>
+
+        <!---->
+
+        <section class="sectFlex">
+
+            <input type="text" spellcheck="false" placeholder="Escreva seu nome aqui" id="id_usuario_logar" oninput="verificar(this)"><br>
+
+        </section>
+
+        <!---->
         
         <label for="id_senha_logar">Senha:</label>
-        <input type="text" spellcheck="false" placeholder="Escreva sua senha aqui" id="id_senha_logar" oninput="verificar(this)"><br>
 
-        <button id="id_botao_acesso_logar" type="button" onclick="logar()" class="desativado"> Acessar</button><br>
+        <section class="sectFlex">
+
+            <input type="text" spellcheck="false" placeholder="Escreva sua senha aqui" id="id_senha_logar" oninput="verificar(this)"><br>
+
+        </section>
+        
+        <!---->
+
+        <section class="sectFlex">
+
+            <button id="id_botao_acesso_logar" type="button" onclick="logar()" class="desativado"> Acessar</button><br>
+
+        </section>
 
         <hr>
 
-        <button type="button" onclick="ranking()">Ver ranking</button><br>
+        <article>
+
+            <p>Veja o ranking dos usuários!</p>
+
+            <button type="button" onclick="ranking()">Ver ranking</button>
+            <button type="button" onclick="tutorial()">Como joga?</button>
+
+        </article>
 
     </main>
 
-    <footer></footer>
+    <footer>
+
+        <h2>Arthur Yago, Bruno Benetti</h2>
+
+        <nav>Informática, 2º Ano</nav>
+
+    </footer>
     
 </body>
 

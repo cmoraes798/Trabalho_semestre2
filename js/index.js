@@ -109,3 +109,16 @@ function logar(){
     }
     
 }
+
+function tutorial(){
+
+    Swal.fire({
+
+        title: "Calma lá, maninho",
+        html: `Cria a sua conta primeiro!`,
+        icon: "question",
+        draggable: true
+
+    });
+
+}

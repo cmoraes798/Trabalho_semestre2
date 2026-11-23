@@ -334,6 +334,23 @@ function ranking(){ //Mermao, QUE (fica pra vc isso ai)
     });
 }
 
+function tutorial(){
+
+    Swal.fire({
+
+        title: "Como joga o Anitermo?",
+        html: `Escreva, selecione o nome de um personagem no campo abaixo e clique em <b>"Chutar"</b> para começar a jogar. 
+        Seu objetivo é adivinhar um personagem do anime da página sorteado aleatoriamente com base nas <b>características</b> de outros personagens.
+        A cada chute, será exibido e destacado em <b>verde</b> quais características do personagem chutado correspondem ao personagem sorteado. Você vence quando chutar o personagem correto!
+        Mas cuidado, você tem um limite de <b>6 chutes</b>, então use-os com sabedoria.
+        Lembre de olhar o <b>ranking</b> quando terminar de jogar, você ganha pontuação a cada vitória e pode competir com outro usuários!`,
+        icon: "question",
+        draggable: true
+
+    });
+
+}
+
 function recarregarPag(){
 
     window.location.href = "../html/blue_lock.html"
