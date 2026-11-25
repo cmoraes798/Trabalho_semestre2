@@ -1,8 +1,13 @@
-//pegando qual o usuario logado
-let usuario_ativo = sessionStorage.key(0)
-let pontos_ini = localStorage.getItem(usuario_ativo)
-let mostrar_user = document.getElementById("id_user")
-mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos_ini} pontos!`
+// Recupera o usuário salvo no login, sem depender da ordem das chaves da sessão.
+const usuario_ativo = sessionStorage.getItem("usuarioAtivo")
+const pontos_ini = usuario_ativo ? localStorage.getItem(usuario_ativo) : null
+const mostrar_user = document.getElementById("id_user")
+
+if (pontos_ini === null) {
+    window.location.replace("../html/index.html")
+} else {
+    mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos_ini} pontos!`
+}
 
 const personagens = [
 
@@ -250,10 +255,8 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         finalizarTimer()
         
         //pegando qual o usuario logado
-        let usuario_ativo = sessionStorage.key(0)
         let pontos = Number(localStorage.getItem(usuario_ativo))
 
-        sessionStorage.setItem(usuario_ativo,pontos+1)
         localStorage.setItem(usuario_ativo,pontos+1 )
 
         let mostrar_user = document.getElementById("id_user")

@@ -1,5 +1,7 @@
 sessionStorage.clear()
 
+const CHAVE_USUARIO_ATIVO = "usuarioAtivo"
+
 function acesso(){
 
     let nome = document.getElementById("id_usuario").value;
@@ -23,7 +25,7 @@ function acesso(){
         //vendo se a classe ta certa (ou seja, tem mais de 1 carcter na senha e no usuario)
         if(botao.className == "ativado"){
             localStorage.setItem(nome,0)
-            sessionStorage.setItem(nome,0)
+            sessionStorage.setItem(CHAVE_USUARIO_ATIVO,nome)
         
             window.location.href = "../html/blue_lock.html"
         }else{
@@ -97,7 +99,7 @@ function logar(){
 
     if (usuarios_nomes.includes(usuario)){
 
-        sessionStorage.setItem(usuario,pontos)    
+        sessionStorage.setItem(CHAVE_USUARIO_ATIVO,usuario)
         window.location.href = "../html/blue_lock.html"
     }else{
         Swal.fire({
