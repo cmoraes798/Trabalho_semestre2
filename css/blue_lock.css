@@ -202,15 +202,15 @@ footer{
     align-items: center;                               /* Centraliza itens verticalmente */
     justify-content: space-between;                    /* Espaça itens nas extremidades */
     flex-wrap: wrap;                                   /* Permite quebra em telas menores */
+
     gap: 1rem;                                         /* Espaço entre itens do cabeçalho */
+
     position: relative;                                /* Posição relativa para posicionamento interno */
     width: 100%;
 
     background-color: #000000;
 
 	margin-top: 2.5%;
-
-    flex: 1;
 
 }
 
@@ -232,6 +232,9 @@ footer nav{
 
     margin-right: 2.5%;  
 
+    font-weight: bold;                                 /* Negrito para melhor visibilidade */
+    font-size: 150%;
+
 }
 
 /*--------*/
@@ -240,13 +243,12 @@ a{
 
     color: #7184d6;                                    /* Cor azul dos links */
     text-decoration: none;                             /* Remove o sublinhado padrão */
-    font-size: clamp(1rem, 1.8vw, 1.3rem);            /* Tamanho de texto responsivo */
     font-weight: bold;                                 /* Negrito para melhor visibilidade */
+    font-size: 150%;
 
 }a:hover {
     text-decoration: underline;                        /* Sublinhado ao passar o mouse */
 }
-
 /*--------*/
 
 hr{
