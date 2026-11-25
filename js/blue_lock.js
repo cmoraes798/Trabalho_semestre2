@@ -256,7 +256,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         localStorage.setItem(usuario_ativo,pontos+1 )
 
         let mostrar_user = document.getElementById("id_user")
-        mostrar_user.innerHTML = `${usuario_ativo} tem: ${pontos+1} pontos!`
+        mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos+1} pontos!`
 
         Swal.fire({
         title: "Você venceu",
