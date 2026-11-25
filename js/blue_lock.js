@@ -63,7 +63,7 @@ let personagemSorteado
 function sortearPersonagem(){ //Sorteia o personagem aleatorio
 
     personagemSorteado = personagens[randomizador()] //Escolhe um personagem aleatório
-    console.log(personagemSorteado)
+    //console.log(personagemSorteado)
 
     permitirChutes = true
 
@@ -77,8 +77,6 @@ function iniciarTimer(){ //Inicia ne
 
         segundosPassados ++
         timer.innerHTML = `Segundos corridos: ${segundosPassados}`
-
-        console.log(segundosPassados)
         
     }, 1000); //Os milissegundos
 
@@ -150,8 +148,6 @@ function iniciarChute(){ //Encontra o personagem chutado e manda pra validar (ve
 }
 
 function validarChute(personagemChutado){ //Toda a budega pra validar o que o usuario escreveu no chute
-
-    console.log(personagemChutado)
 
     //Pra armazenar os valores do personagem chutado e do sorteado e usar dps na tabela--------//
 
