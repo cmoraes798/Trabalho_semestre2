@@ -277,6 +277,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
     else if(personagemChutado != personagemSorteado && chutes.length == 6){
 
         permitirChutes = false
+        btnJogarNovamente.disabled = false
         finalizarTimer()
 
         Swal.fire({ //Alert kawaii
