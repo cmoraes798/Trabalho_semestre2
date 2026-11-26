@@ -176,24 +176,24 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
     ]
 
     //Pra verificar quais valores acertou e quais errou--------//
+    //Cores na ordem dos dados tbm
 
     const cores = []
 
-    for (const valor of dadosPersonagemChutado) {
+    for (let i = 0; i < dadosPersonagemChutado.length; i++) {
 
-        let i = dadosPersonagemChutado.indexOf(valor)
-    
-        if (valor === dadosPersonagemSorteado[i]){
+        const valor = dadosPersonagemChutado[i]
+
+        if (valor === dadosPersonagemSorteado[i]) {
 
             cores.push(`rgb(29, 202, 86)`)
 
-        }
-        else{
+        } else {
 
             cores.push(`rgb(243, 121, 51)`)
 
         }
-
+        
     }
 
     //for (let i = 0; i < dadosPersonagemChutado.length; i++) {
