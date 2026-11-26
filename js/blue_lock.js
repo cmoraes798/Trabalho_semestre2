@@ -6,7 +6,7 @@ const mostrar_user = document.getElementById("id_user")
 if (pontos_ini === null) {
     window.location.replace("../html/index.html")
 } else {
-    mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos_ini} pontos!`
+    mostrar_user.textContent = `Você (${usuario_ativo}) tem ${pontos_ini} pontos!`
 }
 
 const personagens = [
@@ -256,7 +256,7 @@ function validarChute(personagemChutado){ //Toda a budega pra validar o que o us
         localStorage.setItem(usuario_ativo,pontos+1 )
 
         let mostrar_user = document.getElementById("id_user")
-        mostrar_user.innerHTML = `Você (${usuario_ativo}) tem ${pontos+1} pontos!`
+        mostrar_user.textContent = `Você (${usuario_ativo}) tem ${pontos+1} pontos!`
 
         Swal.fire({
         title: "Você venceu",
@@ -319,14 +319,28 @@ function ranking(){ //Mermao, QUE (fica pra vc isso ai)
     usuarios.sort((a,b) => b.valor - a.valor);
 
     console.log(usuarios)
-    let resposta = ""
+    let resposta = document.createElement("div")
     for (i = 0; i <localStorage.length; i++){
-        resposta +=  `<b>${i+1}º lugar</b>: ${usuarios[i].chave} com <b>${usuarios[i].valor}</b> <br>`
+        let posicao = document.createElement("b")
+        posicao.textContent = `${i+1}º lugar`
+
+        let nomeUsuario = document.createElement("span")
+        nomeUsuario.textContent = usuarios[i].chave
+
+        let pontuacao = document.createElement("b")
+        pontuacao.textContent = usuarios[i].valor
+
+        resposta.appendChild(posicao)
+        resposta.appendChild(document.createTextNode(": "))
+        resposta.appendChild(nomeUsuario)
+        resposta.appendChild(document.createTextNode(" com "))
+        resposta.appendChild(pontuacao)
+        resposta.appendChild(document.createElement("br"))
     }
 
     Swal.fire({
         title: "Ranking de usuários",
-        html: `${resposta}`,
+        html: resposta,
         imageUrl: "https://cdn-icons-png.flaticon.com/512/4015/4015275.png",
         imageWidth: 200,
         imageHeight: 200,

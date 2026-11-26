@@ -75,14 +75,28 @@ function ranking(){
     usuarios.sort((a,b) => b.valor - a.valor);
 
     console.log(usuarios)
-    let resposta = ""
+    let resposta = document.createElement("div")
     for (let i = 0; i <localStorage.length; i++){
-        resposta +=  `<b>${i+1}º lugar</b>: ${usuarios[i].chave} com pontuação <b>${usuarios[i].valor}</b><br>`
+        let posicao = document.createElement("b")
+        posicao.textContent = `${i+1}º lugar`
+
+        let nomeUsuario = document.createElement("span")
+        nomeUsuario.textContent = usuarios[i].chave
+
+        let pontuacao = document.createElement("b")
+        pontuacao.textContent = usuarios[i].valor
+
+        resposta.appendChild(posicao)
+        resposta.appendChild(document.createTextNode(": "))
+        resposta.appendChild(nomeUsuario)
+        resposta.appendChild(document.createTextNode(" com pontuação "))
+        resposta.appendChild(pontuacao)
+        resposta.appendChild(document.createElement("br"))
     }
 
     Swal.fire({
         title: "Ranking de usuários",
-        html: `${resposta}`,
+        html: resposta,
         imageUrl: "https://cdn-icons-png.flaticon.com/512/4015/4015275.png",
         imageWidth: 200,
         imageHeight: 200,
